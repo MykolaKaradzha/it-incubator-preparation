@@ -1,0 +1,111 @@
+@import "_nullstyle";
+
+@mixin display-flex($jc,$ai){
+    display:flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+body{
+    @include display-flex(flex-start, center);
+    font-family: sans-serif;
+    background: url("background.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #071d95;
+}
+
+.wrapper {
+    @include display-flex(center, center);
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+.slides {
+    height: 70%;
+    width: 70%;
+    display: flex;
+    overflow-x: hidden;
+}
+
+.slide{
+    display: none;
+    justify-content: center;
+    align-content: end;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    color: white;
+    text-align: end;
+    h1{
+        font-size: 4em;
+        text-align: center;
+    }
+    p{
+        font-size: 2em;
+        margin: 20px;
+        text-align: center;
+    }
+}
+
+.links {
+    @include display-flex(center, normal);
+    flex-basis: 100%;
+    margin: 25px 0;
+    .bullet{
+        font-size: 5em;
+        color: white;
+        margin: 5px;
+        &:hover{
+            color:rgb(115, 120, 199)
+        }
+    }
+}
+
+.button {
+    width: min-content;
+    height: min-content;
+    padding-bottom: 25px;
+    &:hover{
+        background-color: rgba(0,0,0,0.8);
+    }
+    .scroll-button {
+        font-size: 10em;
+        color: rgb(235, 233, 233);
+        display: none;
+    }
+    &.back {
+        order: -1;
+    }
+    &.forward {
+        order: 1;
+            }
+}
+#slide-1:checked ~ .wrapper > .slides > :first-child,
+#slide-2:checked ~ .wrapper > .slides > :nth-child(2),
+#slide-3:checked ~ .wrapper > .slides > :nth-child(3){
+    display: grid;
+    animation-name: fading;
+    animation-duration: 1s;
+}
+
+#slide-1:checked ~.wrapper .links .no-1,
+#slide-2:checked ~.wrapper .links .no-2,
+#slide-3:checked ~.wrapper .links .no-3{
+    color: blue;
+}
+
+#slide-1:checked ~ .button > .for-1,
+#slide-2:checked ~ .button > .for-2,
+#slide-3:checked ~ .button > .for-3 {
+    display: block;
+}
+
+@keyframes fading {
+    from {opacity: 0.4};
+    to {opacity: 1};
+}

@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+  }
+  .purple {
+    background-color: purple;
+    height: 250px;
+    width: 250px;
+    align-self: end;
+  }
+  .blue {
+    background-color: blue;
+    height: 250px;
+    width: 250px;
+    align-self: center;
+  }
+  .orange {
+    background-color: orange;
+    height: 750px;
+    width: 250px;
+  }
+  .brown {
+    background-color: brown;
+    height: 250px;
+    width: 250px;
+  }

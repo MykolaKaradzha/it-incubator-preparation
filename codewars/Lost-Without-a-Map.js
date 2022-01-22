@@ -1,7 +1,5 @@
-function maps(x){
-    y = [];
-    for (let i in x) {
-        y.push(x[i]*2)
+function findNeedle(haystack) {
+    for (let i in haystack) {
+        if (haystack[i] === "needle") {return `found the needle at position ${i}`}
     }
-    return y;
 }

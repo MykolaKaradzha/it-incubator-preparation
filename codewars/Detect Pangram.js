@@ -2,10 +2,7 @@
 function isPangram(string){
     let alphabetArray = ("abcdefghijklmnopqrstuvwxyz").split('');
     let charsArray = string.toLowerCase().split('');
-    let filteredArray = charsArray.filter(char => alphabetArray.includes(char));
-    let sortedArray = filteredArray.sort();
-    console.log(charsArray)
-    console.log(filteredArray)
-    console.log(alphabetArray.every(item => sortedArray.includes(item)))
+
+    console.log(alphabetArray.every(item => charsArray.includes(item)))
 }
 isPangram("'The quick brown fox jumps over the lazy dog.")
